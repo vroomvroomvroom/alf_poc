@@ -1,0 +1,21 @@
+version: '2'
+services:
+  lb:
+    build: ./lb
+    ports:
+      - "80:80"
+    links:
+       - alf:alf
+  db:
+    image: "postgres"
+    ports:
+      - "5243:5243"
+  alf:
+    build: ./alf
+    ports:
+      - "8080:8080"
+    links:
+       - db:db
+    volumes:
+      - ./alf/content_store:/opt/app/alfresco_01/alf_content_store
+

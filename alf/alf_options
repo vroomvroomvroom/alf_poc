@@ -1,0 +1,57 @@
+##
+# set the basics
+mode=unattended
+unattendedmodeui=minimal
+debuglevel=4
+debugtrace=alf_install.out
+installer-language=en
+
+##
+# set which components to install
+#enable-components=javaalfresco,alfrescosolr,libreofficecomponent
+enable-components=javaalfresco,libreofficecomponent,postgres
+
+## normal disable list
+#disable-components=postgres,alfrescowcmqs,alfrescogoogledocs,alfrescosolr4
+##
+# enable postgre for quick testing
+disable-components=alfrescowcmqs,alfrescogoogledocs,alfrescosolr4
+
+prefix=/opt/app/alfresco_01
+
+##
+# database section
+
+#jdbc_url=jdbc:postgresql:@alf_db_serv:5432
+jdbc_url=jdbc:postgresql:@alf_db_serv:5432
+jdbc_driver=org.postgresql.Driver
+jdbc_database=alfresco
+jdbc_username=alfresco
+jdbc_password=alfresco123
+
+## 
+# tomcat section
+tomcat_server_directory=/opt/app/alfresco_01/tomcat_01
+tomcat_server_domain=127.0.0.1
+tomcat_server_port=8080
+tomcat_server_shutdown_port=8005
+tomcat_server_ssl_port=8443
+tomcat_server_ajp_port=8009
+
+##
+# rmi and alfresco options
+alfresco_rmi_port=50500
+alfresco_admin_password=WhyNotZoidberg?
+baseunixservice_install_as_service=1
+
+##
+# openoffice
+libreoffice_port=8100
+
+##
+# startup with OS
+alfrescocustomstack_services_startup=auto
+
+
+
+
