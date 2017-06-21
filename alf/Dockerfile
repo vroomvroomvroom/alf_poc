@@ -12,7 +12,7 @@ RUN curl http://eu.dl.alfresco.com.s3.amazonaws.com/release/community/201704-bui
 
 RUN chmod +x alfresco-community-installer-201704-linux-x64.bin
 
-COPY alf_options.opt /opt/alfresco/alf_options.opt
+COPY alf_options /opt/alfresco/alf_options.opt
 
 RUN ./alfresco-community-installer-201704-linux-x64.bin --optionfile /opt/alfresco/alf_options.opt
 
