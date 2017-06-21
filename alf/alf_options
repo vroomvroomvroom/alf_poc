@@ -41,7 +41,7 @@ tomcat_server_ajp_port=8009
 ##
 # rmi and alfresco options
 alfresco_rmi_port=50500
-alfresco_admin_password=WhyNotZoidberg?
+alfresco_admin_password=alfresco123
 baseunixservice_install_as_service=1
 
 ##

@@ -1,2 +1,9 @@
 # alf_poc
 testing out alfresco with encryption and replication
+update the env_file/.env values
+
+source env_file/.env; rm -rf alf/alf_options; envsubst <"alf/alf_options.opt" > alf/alf_options
+
+docker-compose build 
+
+
