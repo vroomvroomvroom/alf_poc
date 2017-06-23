@@ -23,7 +23,7 @@ prefix=${PREFIX}
 # database section
 
 #jdbc_url=jdbc:${ALF_DB_CLIENT}:@${ALF_DB_SRV}:${ALF_DB_PORT}
-jdbc_url=jdbc:${ALF_JDBC_URL}
+jdbc_url=${ALF_JDBC_URL}
 jdbc_driver=${ALF_JDBC_DRV}
 jdbc_database=${ALF_DB_INST}
 jdbc_username=${ALF_DB_USER}

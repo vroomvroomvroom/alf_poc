@@ -1,1 +1,1 @@
-select * from pg_database where datname='alfresco';
+select count(*) from pg_database where datname='alfresco';

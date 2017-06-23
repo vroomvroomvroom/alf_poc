@@ -41,8 +41,12 @@ RUN   chmod +x /entry.sh
 #RUN whereis psql
 
 EXPOSE 8080
-
-#ENTRYPOINT ["/entry.sh"]
+## remove solr
+RUN rm -rf /opt/alfresco/tomcat/webapps/solr*
+RUN rm /opt/alfresco/tomcat/conf/Catalina/localhost/solr4.xml
+COPY alfresco-global /opt/alfresco/tomcat/shared/classes/alfresco-global.properties
+RUN /opt/alfresco/alfresco.sh restart
+ENTRYPOINT ["/entry.sh"]
 #ENTRYPOINT ["/opt/app/alfcom/alfresco.sh", "start"]
-ENTRYPOINT ["/bin/bash"]
+#ENTRYPOINT ["/bin/bash"]
 

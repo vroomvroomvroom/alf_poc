@@ -22,8 +22,8 @@ prefix=/opt/alfresco
 ##
 # database section
 
-#jdbc_url=jdbc:postgresql:@alf_db_serv:5432
-jdbc_url=jdbc:postgresql:@alf_db_serv:5432
+#jdbc_url=jdbc:postgresql:@alfpoc_db_1:5432
+jdbc_url=jdbc:postgresql://alfpoc_db_1:5432/alfresco
 jdbc_driver=org.postgresql.Driver
 jdbc_database=alfresco
 jdbc_username=postgres

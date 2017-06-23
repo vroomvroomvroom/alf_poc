@@ -17,6 +17,10 @@ if [ ! -f /opt/alfresco/alf_data/foo.txt ]; then
    echo "checking for DB";
    export PGPASSWORD=alfresco123;/usr/bin/psql -h "$DB_CONTAINER_NAME" -p "5432" -U postgres < /check.sql | egrep -v 'count|row|--' > dbout
    check=`head -1 dbout | tr -d [:space:]`
+   echo "**** THis is check: "$check " *"
+   if [ "$check" = "" ]; then 
+      check=0 
+   fi
    if [ $check -eq 0 ]; then
         echo "Creating DB from alfresco contaner";
        export PGPASSWORD=alfresco123;/usr/bin/psql -h "$DB_CONTAINER_NAME" -p "5432" -U postgres < /create.sql
