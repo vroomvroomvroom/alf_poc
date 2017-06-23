@@ -1,21 +1,29 @@
 version: '2'
 services:
-  lb:
-    build: ./lb
-    ports:
-      - "80:80"
-    links:
-       - alf:alf
   db:
+    environment: 
+      - POSTGRES_PASSWORD=alfresco123 
     image: "postgres"
     ports:
       - "5243:5243"
+
   alf:
+    environment:
+      - DB_CONTAINER_NAME=${COMPOSE_PROJECT_NAME}db_1
     build: ./alf
     ports:
       - "8080:8080"
     links:
        - db:db
     volumes:
-      - ./alf/content_store:/opt/app/alfresco_01/alf_content_store
+      - ./alf/content_store:/opt/alfresco/alf_content_store
+
+  lb:
+    build: ./lb
+    ports:
+      - "80:80"
+    links:
+       - alf:alf
+
+
 

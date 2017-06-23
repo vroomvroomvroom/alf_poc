@@ -9,13 +9,13 @@ installer-language=en
 ##
 # set which components to install
 #enable-components=javaalfresco,alfrescosolr,libreofficecomponent
-enable-components=javaalfresco,libreofficecomponent,postgres
+enable-components=javaalfresco,libreofficecomponent,alfrescosolr4
 
 ## normal disable list
 #disable-components=postgres,alfrescowcmqs,alfrescogoogledocs,alfrescosolr4
 ##
 # enable postgre for quick testing
-disable-components=alfrescowcmqs,alfrescogoogledocs,alfrescosolr4
+disable-components=alfrescowcmqs,alfrescogoogledocs,postgres
 
 prefix=${PREFIX}
 
@@ -31,7 +31,7 @@ jdbc_password=${ALF_DB_PASS}
 
 ## 
 # tomcat section
-tomcat_server_directory=${PREFIX}/tomcat_01
+tomcat_server_directory=${PREFIX}/tomcat
 tomcat_server_domain=${TC_DOMAIN}
 tomcat_server_port=${TC_PORT}
 tomcat_server_shutdown_port=${TC_SD_PORT}

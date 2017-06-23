@@ -9,15 +9,15 @@ installer-language=en
 ##
 # set which components to install
 #enable-components=javaalfresco,alfrescosolr,libreofficecomponent
-enable-components=javaalfresco,libreofficecomponent,postgres
+enable-components=javaalfresco,libreofficecomponent,alfrescosolr4
 
 ## normal disable list
 #disable-components=postgres,alfrescowcmqs,alfrescogoogledocs,alfrescosolr4
 ##
 # enable postgre for quick testing
-disable-components=alfrescowcmqs,alfrescogoogledocs,alfrescosolr4
+disable-components=alfrescowcmqs,alfrescogoogledocs,postgres
 
-prefix=/opt/app/alfresco_01
+prefix=/opt/alfresco
 
 ##
 # database section
@@ -26,12 +26,12 @@ prefix=/opt/app/alfresco_01
 jdbc_url=jdbc:postgresql:@alf_db_serv:5432
 jdbc_driver=org.postgresql.Driver
 jdbc_database=alfresco
-jdbc_username=alfresco
+jdbc_username=postgres
 jdbc_password=alfresco123
 
 ## 
 # tomcat section
-tomcat_server_directory=/opt/app/alfresco_01/tomcat_01
+tomcat_server_directory=/opt/alfresco/tomcat
 tomcat_server_domain=127.0.0.1
 tomcat_server_port=8080
 tomcat_server_shutdown_port=8005
