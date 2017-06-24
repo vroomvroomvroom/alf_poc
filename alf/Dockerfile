@@ -39,13 +39,17 @@ COPY check.sql /
 COPY  entry.sh /
 RUN   chmod +x /entry.sh
 #RUN whereis psql
+RUN yum install -y unzip zip
 
 EXPOSE 8080
 ## remove solr
 RUN rm -rf /opt/alfresco/tomcat/webapps/solr*
 RUN rm /opt/alfresco/tomcat/conf/Catalina/localhost/solr4.xml
-COPY alfresco-global /opt/alfresco/tomcat/shared/classes/alfresco-global.properties
-RUN /opt/alfresco/alfresco.sh restart
+#COPY alfresco-global /opt/alfresco/tomcat/shared/classes/alfresco-global.properties
+RUN /opt/alfresco/alfresco.sh start
+RUN tail /opt/alfresco/tomcat/logs/catalina.out
+RUN sleep 120
+
 ENTRYPOINT ["/entry.sh"]
 #ENTRYPOINT ["/opt/app/alfcom/alfresco.sh", "start"]
 #ENTRYPOINT ["/bin/bash"]
