@@ -49,8 +49,11 @@ EXPOSE 8080
 ## remove solr
 #RUN rm -rf /opt/alfresco/tomcat/webapps/solr*
 #RUN rm /opt/alfresco/tomcat/conf/Catalina/localhost/solr4.xml
-
+RUN cp /opt/alfresco/tomcat/shared/classes/alfresco-global.properties /opt/alfresco/tomcat/shared/classes/alfresco-global.orig
 COPY alfresco-global /opt/alfresco/tomcat/shared/classes/alfresco-global.properties
+#RUN diff /opt/alfresco/tomcat/shared/classes/alfresco-global.properties /opt/alfresco/tomcat/shared/classes/alfresco-global.orig
+
+#replace the alfresco_user_store.adminpassword value in the copied file with the one in the orig file
 
 # define volume before running keystore generation
 VOLUME ["/opt/alfresco/alf_data"]
