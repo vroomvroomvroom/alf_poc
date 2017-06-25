@@ -4,6 +4,7 @@
 ###############################
 
 dir.root=/opt/alfresco/alf_data
+dir.keystore=/opt/alfresco/alf_data/keystore
 
 alfresco.context=alfresco
 alfresco.host=127.0.0.1
@@ -58,10 +59,10 @@ notification.email.siteinvite=false
 dir.license.external=/opt/alfresco
 
 ### Solr indexing ###
-#index.subsystem.name=solr4
-#dir.keystore=${dir.root}/keystore
-#solr.host=localhost
-#solr.port.ssl=8443
+index.subsystem.name=solr4
+dir.keystore=${dir.root}/keystore
+solr.host=localhost
+solr.port.ssl=8443
 
 # set the defualt
 authentication.chain=alfrescoNtlm1:alfrescoNtlm

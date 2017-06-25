@@ -7,6 +7,10 @@ services:
     ports:
       - "5243:5243"
 
+  alfdat:
+    image: centos:7
+    entrypoint: /bin/bash
+
   alf:
     environment:
       - DB_CONTAINER_NAME=${COMPOSE_PROJECT_NAME}db_1
@@ -15,8 +19,8 @@ services:
       - "8080:8080"
     links:
        - db:db
-    volumes:
-      - ./alf/content_store:/opt/alfresco/alf_content_store
+    volumes_from:
+      - alfdat
 
   lb:
     build: ./lb
