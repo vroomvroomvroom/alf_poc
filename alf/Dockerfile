@@ -37,7 +37,7 @@ WORKDIR /opt/alfresco
 ## add alfstream
 RUN mkdir -p /opt/alfresco/alf_data /opt/alfresco/alf_data_back
 RUN mv /opt/alfresco/alf_data /opt/alfresco/alf_data_back
-RUN mkdir /opt/alfresco/alf_data
+RUN mkdir -p /opt/alfresco/alf_data/keystore
 COPY create.sql /
 COPY check.sql /
 COPY  entry.sh /
@@ -63,7 +63,7 @@ ENV PATH="/opt/alfresco/java:/opt/alfresco/java/bin:${PATH}"
 RUN echo $PATH
 RUN ./generate_keystores.sh
 
-RUN cp $HOME/*keystore* /opt/alfresco/alf_data/keystore/
+RUN cp /root/*keystore* /opt/alfresco/alf_data/keystore/
 RUN ln -s  /opt/alfresco/alf_data/alf_data/keystore /opt/alfresco/alf_data/keystore
 
 #RUN keytool
